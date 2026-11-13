@@ -42,3 +42,20 @@ for (let i=0; i < theFill.length; i++)
         .Change the player's key to the value of the input
         .Show the player's key in the output div 
 -----------*/
+const up = document.querySelectorAll(".u");
+for (let i=0; i < up.length; i++)
+{
+    const output = up[i].nextElementSibling;
+    up[i].value = player[i].keys.u;
+    output.innerHTML = player[i].keys.u;
+    up[i].addEventListener("keydown", function(e)
+    {
+        player[i].keys.u = e.key;
+        up[i].value = e.key;
+        output.innerHTML = e.key;
+    });
+    up[i].addEventListener("focus", function(e)
+    {
+        currentState = "pause";
+    });
+}
