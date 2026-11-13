@@ -19,6 +19,20 @@ heading.addEventListener("click", function()
         . Show the fill's hex code in the output div 
 
 -----------*/
+const theFill = document.querySelectorAll(".fill");
+for (let i=0; i < theFill.length; i++)
+{
+    theFill[i].value = player[i].fill;
+    const output = theFill[i].nextElementSibling;
+    output.innerHTML = player[i].fill;
+    theFill[i].addEventListener("input", function(e)
+    {
+        player[i].fill = e.target.value;
+        player[i].pad.fill = player[i].fill;
+        output.innerHTML = player[i].fill;
+    });
+}
+
 
 /*---------
     Program the six key inputs to do the following:
