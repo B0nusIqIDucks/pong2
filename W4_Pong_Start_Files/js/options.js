@@ -59,3 +59,53 @@ for (let i=0; i < up.length; i++)
         currentState = "pause";
     });
 }
+//Down
+const down = document.querySelectorAll(".d");
+for (let i=0; i < down.length; i++)
+{
+    const output = down[i].nextElementSibling;
+    down[i].value = player[i].keys.d;
+    output.innerHTML = player[i].keys.d;
+    down[i].addEventListener("keydown", function(e)
+    {
+        player[i].keys.d = e.key;
+        down[i].value = e.key;
+        output.innerHTML = e.key;
+    });
+    down[i].addEventListener("focus", function(e)
+    {
+        currentState = "pause";
+    });
+}
+//straight???
+const str8 = document.querySelectorAll(".s");
+for (let i=0; i < str8.length; i++)
+{
+    const output = str8[i].nextElementSibling;
+    str8[i].value = player[i].keys.s;
+    output.innerHTML = player[i].keys.s;
+    str8[i].addEventListener("keydown", function(e)
+    {
+        player[i].keys.s = e.key;
+        str8[i].value = e.key;
+        output.innerHTML = e.key;
+    });
+    str8[i].addEventListener("focus", function(e)
+    {
+        currentState = "pause";
+    });
+}
+//stroke
+const toast = document.querySelectorAll(".stroke");
+for (let i=0; i < toast.length; i++)
+{
+    toast[i].value = player[i].stroke;
+    const output = toast[i].nextElementSibling;
+    output.innerHTML = player[i].stroke;
+    toast[i].addEventListener("input", function(e)
+    {
+        player[i].stroke = e.target.value;
+        player[i].pad.stroke = player[i].stroke;
+        output.innerHTML = player[i].stroke;
+    });
+}
